@@ -596,7 +596,7 @@ html, body {
   font-weight: bold;
   white-space: nowrap;
   text-align: center;
-  animation: gauge-popup 1.2s ease-in-out forwards;
+  animation: gauge-popup 0.8s ease-in-out forwards;
   z-index: 100;
   box-shadow: 0 0 40px rgba(201, 75, 75, 0.3), inset 0 0 20px rgba(201, 75, 75, 0.1);
 }
@@ -610,11 +610,11 @@ html, body {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.8);
   }
-  15% {
+  20% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
-  85% {
+  80% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
