@@ -1,13 +1,23 @@
 /**
  * 게임 엔진 — 시점 선택 / 씬 진행 / 게이지 갱신 / 선택지 처리만 담당합니다.
- * 스토리 내용(js/data.js)에는 관여하지 않습니다.
+ * 스토리 내용(js/data.js, js/husband-data.js)에는 관여하지 않습니다.
  *
  * 진행 순서: 배경 출력 → 캐릭터 출력 → 대사 출력 → 선택지 출력
- *           → 플레이어 선택 → 인내심 변경 → 다음 장면
+ *           → 플레이어 선택 → 인내심 변경(해당 루트만) → 다음 장면
  */
 
 (function () {
+  const EFFECT_CLASSES = [
+    "cam-zoom-in",
+    "cam-zoom-in-slow",
+    "cam-tilt-up",
+    "fx-shake",
+    "fx-flash",
+    "fx-desaturate",
+  ];
+
   const state = {
+    activeData: GAME_DATA,
     patience: GAME_DATA.initialPatience,
     currentSceneId: null,
   };
@@ -19,6 +29,7 @@
     game: document.getElementById("game"),
 
     chapterLabel: document.getElementById("chapter-label"),
+    cueCaption: document.getElementById("cue-caption"),
     bgLayer: document.getElementById("bg-layer"),
     guestSilhouette: document.getElementById("guest-silhouette"),
 
@@ -73,10 +84,9 @@
 
   function resolveEndingSceneId() {
     const pct = clampPatience(state.patience);
-    const match = GAME_DATA.endingThresholds.find(
-      (t) => pct >= t.min && pct <= t.max
-    );
-    return match ? match.sceneId : GAME_DATA.endingThresholds[GAME_DATA.endingThresholds.length - 1].sceneId;
+    const thresholds = state.activeData.endingThresholds;
+    const match = thresholds.find((t) => pct >= t.min && pct <= t.max);
+    return match ? match.sceneId : thresholds[thresholds.length - 1].sceneId;
   }
 
   function renderStageVisuals(scene) {
@@ -86,6 +96,30 @@
     el.bgLayer.style.backgroundPosition = "center";
 
     el.guestSilhouette.classList.toggle("hidden", !scene.showGuest);
+  }
+
+  function renderEffects(scene) {
+    el.stage.classList.remove(...EFFECT_CLASSES);
+
+    if (scene.cameraEffect) {
+      el.stage.classList.add(scene.cameraEffect);
+    }
+
+    if (scene.screenEffect) {
+      // 강제 리플로우로 동일한 효과가 연속 씬에서도 다시 재생되게 한다.
+      void el.stage.offsetWidth;
+      el.stage.classList.add(scene.screenEffect);
+    }
+  }
+
+  function renderCue(scene) {
+    if (scene.cue) {
+      el.cueCaption.textContent = scene.cue;
+      el.cueCaption.classList.remove("hidden");
+    } else {
+      el.cueCaption.classList.add("hidden");
+    }
+    el.cueCaption.classList.toggle("with-chapter", Boolean(scene.chapterLabel));
   }
 
   function renderPortrait(scene) {
@@ -145,6 +179,7 @@
     el.stage.classList.add("hidden");
     el.gaugeWrap.classList.add("hidden");
     el.chapterLabel.classList.add("hidden");
+    el.cueCaption.classList.add("hidden");
 
     const layers = backgroundLayers(scene);
     el.endingBgLayer.style.backgroundImage = layers.image;
@@ -157,7 +192,7 @@
   }
 
   function goToScene(sceneId) {
-    const scene = GAME_DATA.scenes[sceneId];
+    const scene = state.activeData.scenes[sceneId];
 
     if (!scene) {
       console.error("존재하지 않는 씬 id 입니다:", sceneId);
@@ -184,6 +219,8 @@
     }
 
     renderStageVisuals(scene);
+    renderEffects(scene);
+    renderCue(scene);
     renderPortrait(scene);
     el.speakerName.textContent = scene.speaker || "";
     el.dialogueText.textContent = scene.text || "";
@@ -191,22 +228,25 @@
   }
 
   function startWifeRoute() {
+    state.activeData = GAME_DATA;
+
     el.titleScreen.classList.add("hidden");
     el.game.classList.remove("hidden");
+    el.gaugeWrap.classList.remove("hidden");
 
     state.patience = clampPatience(GAME_DATA.initialPatience);
     updateGauge();
     goToScene(GAME_DATA.startScene);
   }
 
-  function showHusbandRouteLocked() {
-    const descSpan = el.routeHusband.querySelector(".route-desc");
-    if (!descSpan) return;
-    const original = descSpan.textContent;
-    descSpan.textContent = "아직 개발 중입니다";
-    setTimeout(() => {
-      descSpan.textContent = original;
-    }, 1500);
+  function startHusbandRoute() {
+    state.activeData = GAME_DATA_HUSBAND;
+
+    el.titleScreen.classList.add("hidden");
+    el.game.classList.remove("hidden");
+    el.gaugeWrap.classList.add("hidden");
+
+    goToScene(GAME_DATA_HUSBAND.startScene);
   }
 
   function resetToTitle() {
@@ -215,12 +255,12 @@
     el.dialogueBox.classList.remove("hidden");
     el.choices.classList.remove("hidden");
     el.stage.classList.remove("hidden");
-    el.gaugeWrap.classList.remove("hidden");
+    el.stage.classList.remove(...EFFECT_CLASSES);
     el.game.classList.add("hidden");
     el.titleScreen.classList.remove("hidden");
   }
 
   el.routeWife.addEventListener("click", startWifeRoute);
-  el.routeHusband.addEventListener("click", showHusbandRouteLocked);
+  el.routeHusband.addEventListener("click", startHusbandRoute);
   el.endingRestart.addEventListener("click", resetToTitle);
 })();

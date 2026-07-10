@@ -196,6 +196,26 @@ html, body {
   border-radius: 6px;
 }
 
+/* ---------- SE/BGM 연출 큐 (좌측 상단, 제작 참고용) ---------- */
+#cue-caption {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  z-index: 30;
+  max-width: 46%;
+  color: #9fb0c9;
+  font-size: clamp(8px, 1.1vw, 11px);
+  line-height: 1.5;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.4em 0.7em;
+  border-radius: 6px;
+  border-left: 2px solid rgba(159, 176, 201, 0.5);
+}
+
+#cue-caption.with-chapter {
+  top: calc(3% + 2.6em);
+}
+
 /* ---------- 중앙 무대: 배경 + 캐릭터 ---------- */
 #stage {
   position: absolute;
@@ -208,7 +228,57 @@ html, body {
 #bg-layer {
   position: absolute;
   inset: 0;
-  transition: background 0.6s ease;
+  transition: background 0.6s ease, transform 4s ease-out;
+  transform: scale(1);
+}
+
+#screen-flash {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  pointer-events: none;
+  background: #fff;
+  opacity: 0;
+}
+
+/* 카메라 연출 */
+#stage.cam-zoom-in #bg-layer {
+  transform: scale(1.12);
+}
+
+#stage.cam-zoom-in-slow #bg-layer {
+  transform: scale(1.22);
+  transition: background 0.6s ease, transform 7s ease-out;
+}
+
+#stage.cam-tilt-up #bg-layer {
+  transform: scale(1.1) translateY(-2%);
+}
+
+/* 화면 효과 */
+#stage.fx-shake {
+  animation: fx-shake 0.5s ease-in-out;
+}
+
+@keyframes fx-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-1.2%); }
+  40% { transform: translateX(1.2%); }
+  60% { transform: translateX(-0.8%); }
+  80% { transform: translateX(0.8%); }
+}
+
+#stage.fx-flash #screen-flash {
+  animation: fx-flash 0.9s ease-out;
+}
+
+@keyframes fx-flash {
+  0% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+#stage.fx-desaturate #bg-layer {
+  filter: grayscale(0.6) contrast(1.05);
 }
 
 #bg-vignette {
