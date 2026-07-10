@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>날개 - 두 개의 방</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- 시작 화면: 시점 선택 -->
+    <div id="title-screen">
+      <div id="boot-overlay">
+        <div class="boot-content">
+          <div class="boot-bar-bg"><div class="boot-bar-fill"></div></div>
+          <p class="boot-label pixel-font">LOADING...</p>
+        </div>
+      </div>
+
+      <div class="title-vignette"></div>
+
+      <div class="pixel-motif motif-wing" aria-hidden="true"></div>
+      <div class="pixel-motif motif-pill" aria-hidden="true"></div>
+      <div class="pixel-motif motif-crack motif-crack-1" aria-hidden="true"></div>
+      <div class="pixel-motif motif-crack motif-crack-2" aria-hidden="true"></div>
+
+      <div class="pixel-popup" aria-hidden="true">
+        <div class="pixel-popup-titlebar">
+          <span class="pixel-font">WARNING</span>
+          <span class="pixel-popup-close">×</span>
+        </div>
+        <div class="pixel-popup-body">
+          <p>정말, 돌아가시겠습니까?</p>
+          <div class="pixel-popup-actions">
+            <span class="pixel-btn-mini pixel-font">YES</span>
+            <span class="pixel-btn-mini pixel-font">NO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pixel-panel">
+        <div class="pixel-titlebar">
+          <span class="pixel-titlebar-icon" aria-hidden="true"></span>
+          <span class="pixel-titlebar-label pixel-font">WING.EXE</span>
+          <span class="pixel-titlebar-corner" aria-hidden="true"></span>
+        </div>
+
+        <div class="pixel-panel-body">
+        <div class="pixel-panel-bg"></div>
+        <div class="pixel-panel-overlay"></div>
+        <div class="title-content">
+          <p class="title-kicker">죄책감과 구원</p>
+          <h1 class="title-main">날개</h1>
+          <p class="title-quote">"제발 날 좀 말려줘."</p>
+
+          <div class="route-select">
+            <div class="pixel-idle-cursor" aria-hidden="true"></div>
+            <button id="route-wife" class="route-btn pixel-btn" type="button">
+              <span class="pixel-btn-tag pixel-font">PLAY</span>
+              <span class="route-name">아내</span>
+              <span class="route-desc">그녀의 시점으로 시작한다</span>
+            </button>
+            <button id="route-husband" class="route-btn pixel-btn" type="button">
+              <span class="pixel-btn-tag pixel-font">PLAY</span>
+              <span class="route-name">남편</span>
+              <span class="route-desc">그의 시점으로 시작한다</span>
+            </button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 본 게임 -->
+    <div id="game" class="hidden">
+      <div id="gauge-wrap">
+        <div id="gauge-label">남편의 인내심</div>
+        <div id="gauge-bar-bg">
+          <div id="gauge-bar-fill"></div>
+        </div>
+        <div id="gauge-value">100%</div>
+      </div>
+
+      <div id="gauge-message" class="hidden"></div>
+
+      <div id="chapter-label" class="hidden"></div>
+      <div id="cue-caption" class="hidden"></div>
+
+      <div id="stage">
+        <div id="bg-layer"></div>
+        <div id="bg-vignette"></div>
+        <div id="guest-silhouette" class="hidden"></div>
+        <div id="screen-flash"></div>
+      </div>
+
+      <div id="dialogue-box">
+        <div id="portrait-wrap">
+          <img id="portrait" src="" alt="" />
+        </div>
+        <div id="dialogue-content">
+          <div id="speaker-name"></div>
+          <div id="dialogue-text"></div>
+        </div>
+      </div>
+
+      <div id="choices"></div>
+
+      <div id="ending-screen" class="hidden">
+        <div id="ending-bg-layer"></div>
+        <div class="title-vignette"></div>
+        <div id="ending-title"></div>
+        <div id="ending-desc"></div>
+        <button id="ending-restart" class="choice-btn ending-restart hidden" type="button">처음으로</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/husband-data.js"></script>
+  <script src="js/engine.js"></script>
+</body>
+</html>
