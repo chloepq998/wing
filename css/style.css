@@ -556,40 +556,44 @@ html, body {
 }
 
 #gauge-message {
-  position: absolute;
-  top: 18%;
-  right: 3%;
-  padding: 0.6em 1em;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 0.4em;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2em 3em;
+  background: rgba(20, 9, 12, 0.95);
+  border: 2px solid rgba(201, 75, 75, 0.6);
+  border-radius: 0.8em;
   color: #fff;
-  font-size: clamp(10px, 1.2vw, 14px);
+  font-size: clamp(24px, 4vw, 48px);
+  font-weight: bold;
   white-space: nowrap;
-  animation: gauge-fade-in-out 2s ease-in-out forwards;
-  z-index: 31;
+  text-align: center;
+  animation: gauge-popup 2s ease-in-out forwards;
+  z-index: 100;
+  box-shadow: 0 0 40px rgba(201, 75, 75, 0.3), inset 0 0 20px rgba(201, 75, 75, 0.1);
 }
 
 #gauge-message.hidden {
   display: none;
 }
 
-@keyframes gauge-fade-in-out {
+@keyframes gauge-popup {
   0% {
     opacity: 0;
-    transform: translateY(-0.5em);
+    transform: translate(-50%, -50%) scale(0.8);
   }
   15% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%) scale(1);
   }
   85% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%) scale(1);
   }
   100% {
     opacity: 0;
-    transform: translateY(-0.5em);
+    transform: translate(-50%, -50%) scale(0.9);
   }
 }
 
