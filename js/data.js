@@ -136,6 +136,9 @@ const GAME_DATA = {
       bgGradient:
         "radial-gradient(ellipse at 50% 35%, rgba(120,40,50,0.25), transparent 60%), linear-gradient(180deg, rgba(13,6,7,0.55) 0%, rgba(0,0,0,0.85) 100%)",
       character: "assets/characters/husband.png",
+      screenEffect: "fx-flash",
+      cameraEffect: "cam-zoom-in",
+      cue: "BGM: 현악 크레센도가 희망찬 코드로 상승 · SE: 바람 소리, 발걸음",
       text:
         "뺨을 맞은 남편이 마침내 폭발해 아내의 손목을 꺾고 사내들의 흔적을 엎어버리고 나간다.\n아내는 짐을 챙겨 새로운 사람이 될 준비를 마쳐 집을 나와 걷다가 백화점 옥상에 올라가 있는 남편을 마주친다.\n남편을 바라보다, 다시 인파 속으로 들어간다. / 자신의 길을 걷는다.",
       isEnding: true,
@@ -146,6 +149,8 @@ const GAME_DATA = {
       bgGradient:
         "radial-gradient(ellipse at 50% 35%, rgba(120,40,50,0.25), transparent 60%), linear-gradient(180deg, rgba(13,6,7,0.6) 0%, rgba(0,0,0,0.9) 100%)",
       character: "assets/characters/husband.png",
+      screenEffect: "fx-desaturate",
+      cue: "BGM: 자장가풍 멜로디가 점점 희미해짐 · SE: 심장이 점점 느려지는 소리",
       text:
         "남편은 분노하지 못하고 고개를 숙인다.\n\"내가 오해했소……\"\n다시 방구석 이불 속으로 기어 들어가는 남편을 보며, 아내는 영원히 이 지옥을 벗어날 수 없음을 깨닫고 절망한다.",
       isEnding: true,

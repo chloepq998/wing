@@ -434,7 +434,8 @@ const GAME_DATA_HUSBAND = {
       bgImage: "assets/backgrounds/bg-street-dusk.jpg",
       bgGradient:
         "radial-gradient(ellipse at 50% 35%, rgba(90,60,60,0.2), transparent 60%), linear-gradient(180deg, rgba(10,7,7,0.6) 0%, rgba(0,0,0,0.9) 100%)",
-      cue: "BGM: 자장가풍 멜로디가 점점 느려지다 정지",
+      screenEffect: "fx-desaturate",
+      cue: "BGM: 자장가풍 멜로디가 점점 느려지다 정지 · SE: 심장이 멈추는 소리",
       text:
         "발걸음이 방 쪽으로 향한다. 미닫이문을 연다. 아내가 늘 그렇듯 미소로 맞는다.\n이불 속으로 들어간다. 알약을 삼킨다.\n오늘도, 내일도.\n\n(결말: 스스로 선택하기를 포기하고 영원히 아내의 인형으로 살아간다.)",
       isEnding: true,
@@ -444,7 +445,9 @@ const GAME_DATA_HUSBAND = {
       bgImage: "assets/backgrounds/bg-riverside.jpg",
       bgGradient:
         "radial-gradient(ellipse at 50% 30%, rgba(150,180,200,0.25), transparent 60%), linear-gradient(180deg, rgba(8,10,12,0.4) 0%, rgba(0,0,0,0.75) 100%)",
-      cue: "BGM: 현악 크레센도가 절정에서 밝은 코드로 해소 (Game Clear)",
+      screenEffect: "fx-flash",
+      cameraEffect: "cam-zoom-in",
+      cue: "BGM: 현악 크레센도가 절정에서 밝은 코드로 해소 (Game Clear) · SE: 바람이 거대하게 울려퍼짐",
       text:
         "난간을 넘는다. 바람이 온몸을 때린다. 사이렌 소리가 귓가에서 멀어진다.\n다리에 힘이 들어간다. 다시, 걷는다.\n\n(결말: 아내의 통제를 부수고 내 삶의 주권을 완벽히 되찾는다. Game Clear!)",
       isEnding: true,
