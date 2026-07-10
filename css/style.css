@@ -26,6 +26,33 @@ html, body {
     auto;
 }
 
+/* 모바일 기기 반응형 디자인 */
+@media (max-width: 768px) {
+  #app {
+    max-width: 100vw;
+    max-height: 100vh;
+    aspect-ratio: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #app {
+    aspect-ratio: auto;
+  }
+
+  html, body {
+    overflow: auto;
+  }
+}
+
+@media (orientation: portrait) {
+  #app {
+    aspect-ratio: auto;
+    max-width: 100vw;
+    max-height: auto;
+  }
+}
+
 .pixel-font {
   font-family: "Press Start 2P", "Pretendard", monospace;
 }
