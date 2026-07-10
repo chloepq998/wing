@@ -145,7 +145,7 @@ const GAME_DATA = {
     },
     ending_failure: {
       title: "무기력한 안주",
-      bgImage: "assets/backgrounds/bg-wife-ending.jpg",
+      bgImage: "assets/backgrounds/bg-wife-ending.png",
       bgGradient:
         "radial-gradient(ellipse at 50% 35%, rgba(120,40,50,0.25), transparent 60%), linear-gradient(180deg, rgba(13,6,7,0.6) 0%, rgba(0,0,0,0.9) 100%)",
       character: "assets/characters/husband.png",
