@@ -48,6 +48,8 @@ const GAME_DATA = {
         "radial-gradient(ellipse at 30% 20%, rgba(90,60,40,0.25), transparent 60%), linear-gradient(180deg, rgba(20,14,11,0.35) 0%, rgba(10,8,8,0.55) 60%, rgba(5,4,4,0.75) 100%)",
       character: "assets/characters/wife.png",
       showGuest: true,
+      cameraEffect: "cam-zoom-in-slow",
+      cue: "SE: 벽 너머 침대 소리, 중얼거리는 음성 · BGM: 긴장감 있는 현악, 점점 가까워짐",
       speaker: "",
       text: "방 안에서 사내(내객)와 마주 앉아 있다. 아내는 이 삶에 지쳤다.\n남편이 잠시 방을 비운 사이, 남편을 각성시키기 위한 단 하나의 행동을 해야 한다.",
       choices: [
@@ -74,6 +76,8 @@ const GAME_DATA = {
         "radial-gradient(ellipse at 70% 30%, rgba(120,30,30,0.3), transparent 55%), linear-gradient(180deg, rgba(28,15,16,0.4) 0%, rgba(18,10,11,0.6) 60%, rgba(6,4,4,0.8) 100%)",
       character: "assets/characters/wife.png",
       showGuest: true,
+      screenEffect: "fx-shake",
+      cue: "SE: 벽을 두드리는 소리, 침대 삐걱거리는 소리 · BGM: 불협화음, 긴장감 극대화",
       speaker: "",
       text: "남편이 돌아와 자신의 방에 들어왔다. 사내가 아내의 몸을 더듬기 시작한다.\n아내는 벽 너머의 남편이 들으라는 듯 행동을 취한다.",
       choices: [
@@ -100,6 +104,9 @@ const GAME_DATA = {
         "radial-gradient(ellipse at 50% 15%, rgba(80,90,110,0.2), transparent 55%), linear-gradient(180deg, rgba(17,21,28,0.3) 0%, rgba(11,13,16,0.5) 60%, rgba(5,5,6,0.75) 100%)",
       character: "assets/characters/husband.png",
       showGuest: false,
+      cameraEffect: "cam-zoom-in",
+      screenEffect: "fx-flash",
+      cue: "SE: 약병 부딪치는 소리, 심장박동 · BGM: 거대한 불협화음, 현악 낙하",
       speaker: "",
       text: "사내가 떠난 아침. 남편이 아내의 방으로 건너온다.\n그의 손에는 열려 있던 약병이 쥐어져 있고, 눈빛은 파르르 떨리고 있다.\n아내는 마지막 쐐기를 박아야 한다.",
       choices: [

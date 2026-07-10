@@ -39,9 +39,10 @@ const GAME_DATA_HUSBAND = {
       bgGradient:
         "radial-gradient(ellipse at 40% 70%, rgba(120,90,40,0.25), transparent 60%), linear-gradient(180deg, rgba(30,24,16,0.4) 0%, rgba(14,11,8,0.65) 60%, rgba(5,4,3,0.85) 100%)",
       character: "assets/characters/husband.png",
-      cue: "SE: 숟가락이 그릇에 부딪히는 소리, 벽시계 초침 소리 · BGM: 낮고 조용한 현악",
+      cameraEffect: "cam-zoom-in-slow",
+      cue: "SE: 숟가락이 그릇에 부딪히는 소리, 벽시계 초침 소리(반복) · BGM: 낮고 조용한 현악, 점점 가까워짐",
       speaker: "",
-      text: "좁은 셋방, 흐린 전등 아래 밥상 하나.\n국그릇에서 김이 오른다.",
+      text: "좁은 셋방, 흐린 전등 아래. 밥상 하나가 놓여 있다.\n국그릇에서 김이 피어오른다.",
       next: "h1_2",
     },
     h1_2: {
@@ -52,7 +53,7 @@ const GAME_DATA_HUSBAND = {
       cue: "SE: 숟가락이 그릇에 부딪히는 소리, 벽시계 초침 소리 · BGM: 낮고 조용한 현악",
       cameraEffect: "cam-zoom-in-slow",
       speaker: "",
-      text: "아내가 흰 알약 두 개를 손바닥에 올려 내민다.",
+      text: "손을 펴니 흰 알약 두 개가 놓인다.\n아내의 손에서.",
       next: "h1_3",
     },
     h1_3: {
@@ -60,10 +61,11 @@ const GAME_DATA_HUSBAND = {
       bgGradient:
         "radial-gradient(ellipse at 40% 70%, rgba(120,90,40,0.25), transparent 60%), linear-gradient(180deg, rgba(30,24,16,0.4) 0%, rgba(14,11,8,0.65) 60%, rgba(5,4,3,0.85) 100%)",
       character: "assets/characters/husband.png",
-      cue: "SE: 숟가락이 그릇에 부딪히는 소리, 벽시게 초침 소리 · BGM: 낮고 조용한 현악",
       cameraEffect: "cam-zoom-in-slow",
+      screenEffect: "fx-flash",
+      cue: "SE: 초침 소리가 점점 커짐(심장박동처럼) · BGM: 톤 다운, 불협화음 한 음",
       speaker: "",
-      text: "삼키려던 손이 멈칫한다.\n목구멍 안쪽이 뻑뻑하다.",
+      text: "약을 입으로 집어넣으려던 손이 멈춘다.\n목구멍 안쪽이 뻑뻑하다.",
       next: "h1_4",
     },
     h1_4: {
@@ -71,9 +73,11 @@ const GAME_DATA_HUSBAND = {
       bgGradient:
         "radial-gradient(ellipse at 40% 70%, rgba(120,90,40,0.25), transparent 60%), linear-gradient(180deg, rgba(30,24,16,0.4) 0%, rgba(14,11,8,0.65) 60%, rgba(5,4,3,0.85) 100%)",
       character: "assets/characters/husband.png",
-      cue: "SE: 숟가락이 그릇에 부딪히는 소리, 벽시계 초침 소리 · BGM: 낮고 조용한 현악",
+      cameraEffect: "cam-zoom-in",
+      screenEffect: "fx-desaturate",
+      cue: "SE: 심장박동이 귓가에서 울려 퍼짐 · BGM: 자장가풍 톤, 점점 낮아짐",
       speaker: "",
-      text: "이 약을 먹으면 오늘도 하루 종일 잠만 잘 것이다.\n어제도, 그제도 그랬듯이.",
+      text: "이 약을 삼키면 오늘도 하루 종일 잠만 자게 될 것이다.\n어제도, 그제도 그랬듯이.",
       next: "h1_wife",
     },
     h1_wife: {
