@@ -85,7 +85,7 @@
     el.gaugeMessage.classList.remove("hidden");
     setTimeout(() => {
       el.gaugeMessage.classList.add("hidden");
-    }, 2000);
+    }, 1200);
   }
 
   function applyPatienceDelta(delta) {
