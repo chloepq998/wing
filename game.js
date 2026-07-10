@@ -9,6 +9,12 @@
 
   var ROUTES = window.WINGS_SCENES.routes;
 
+  // 루트별 인물 이미지 (인물칸에 표시)
+  var PORTRAITS = {
+    wife: "assets/portrait-wife.png",
+    hero: "assets/portrait-hero.png"
+  };
+
   // 게임 상태
   var state = { route: null, nodeId: null };
 
@@ -16,6 +22,7 @@
   var startScreenEl = document.getElementById("start-screen");
   var storyEl = document.getElementById("story");
   var routeBadgeEl = document.getElementById("route-badge");
+  var portraitImgEl = document.getElementById("portrait-img");
   var storyTextEl = document.getElementById("story-text");
   var storyChoicesEl = document.getElementById("story-choices");
   var endingEl = document.getElementById("ending");
@@ -32,6 +39,7 @@
     btn.addEventListener("click", function () {
       state.route = btn.dataset.route;
       state.nodeId = ROUTES[state.route].start;
+      portraitImgEl.src = PORTRAITS[state.route];
       startScreenEl.hidden = true;
       endingEl.hidden = true;
       storyEl.hidden = false;
