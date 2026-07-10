@@ -31,10 +31,10 @@ const GAME_DATA = {
   minPatience: 0,
   maxPatience: 100,
 
-  // 성공(0~10%) / 실패(11%~) 두 갈래 엔딩
+  // 성공(0~30%) / 실패(31%~) 두 갈래 엔딩
   endingThresholds: [
-    { min: 0, max: 10, sceneId: "ending_success" },
-    { min: 11, max: 100, sceneId: "ending_failure" },
+    { min: 0, max: 30, sceneId: "ending_success" },
+    { min: 31, max: 100, sceneId: "ending_failure" },
   ],
 
   scenes: {
