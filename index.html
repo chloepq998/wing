@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>날개 — 2인용 선택지 게임</title>
+  <title>날개 — 1인용 선택지 게임</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,35 +12,27 @@
       <h1 id="game-title">날개</h1>
     </header>
 
-    <!-- 좌우 분할 본문 -->
-    <main id="split">
-      <!-- 왼쪽: 아내 플레이어 -->
-      <section id="panel-left" class="panel" data-player="wife">
-        <div class="panel-role">아내</div>
-        <p class="panel-text" id="left-text"></p>
-        <div class="panel-choices" id="left-choices"></div>
-        <div class="panel-waiting" id="left-waiting" hidden>선택 완료 — 상대 대기 중…</div>
-      </section>
+    <!-- 시작화면: 시점 선택 -->
+    <section id="start-screen">
+      <p id="start-desc">플레이할 시점을 선택하세요.</p>
+      <div id="route-select">
+        <button class="route-btn" id="route-wife" data-route="wife">아내로 플레이</button>
+        <button class="route-btn" id="route-hero" data-route="hero">주인공으로 플레이</button>
+      </div>
+    </section>
 
-      <div id="divider"></div>
-
-      <!-- 오른쪽: 주인공 플레이어 -->
-      <section id="panel-right" class="panel" data-player="hero">
-        <div class="panel-role">주인공</div>
-        <p class="panel-text" id="right-text"></p>
-        <div class="panel-choices" id="right-choices"></div>
-        <div class="panel-waiting" id="right-waiting" hidden>선택 완료 — 상대 대기 중…</div>
-      </section>
+    <!-- 스토리 화면 (선택한 시점 단독 진행) -->
+    <main id="story" hidden>
+      <div class="route-badge" id="route-badge"></div>
+      <p class="story-text" id="story-text"></p>
+      <div class="story-choices" id="story-choices"></div>
     </main>
 
     <!-- 엔딩 화면 -->
     <div id="ending" class="ending" hidden>
       <h2 id="ending-title" class="ending-title"></h2>
-      <div class="ending-body">
-        <p id="ending-left" class="ending-text" data-player="wife"></p>
-        <p id="ending-right" class="ending-text" data-player="hero"></p>
-      </div>
-      <button id="restart" class="restart-btn">다시 시작</button>
+      <p id="ending-text" class="ending-text"></p>
+      <button id="restart" class="restart-btn">처음으로</button>
     </div>
   </div>
 

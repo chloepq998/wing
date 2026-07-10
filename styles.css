@@ -1,15 +1,14 @@
 /*
- * 이상 「날개」 2인용 선택지 게임 — 최소 레이아웃
+ * 이상 「날개」 1인용 루트 선택형 게임 — 최소 레이아웃
  * ---------------------------------------------------------------------------
  * 지금은 구조/배치만 잡은 흑백 골격입니다. 비주얼(색, 폰트, 이미지, 배경)은
  * 이 파일에서 클래스/id를 훅으로 삼아 자유롭게 덮어쓰면 됩니다.
  *
  * 주요 훅
- *   #game, #split, #panel-left, #panel-right, #divider
- *   .panel[data-player="wife"|"hero"], .panel.is-locked
- *   .panel-role, .panel-text, .panel-choices, .panel-waiting
- *   .choice-btn, .choice-btn.chosen, .choice-btn:disabled
- *   #ending[data-ending], .ending-title, .ending-text, .restart-btn
+ *   #start-screen, .route-btn[data-route="wife"|"hero"]
+ *   #story, .route-badge, .story-text, .story-choices
+ *   .choice-btn
+ *   #ending[data-ending][data-true-ending="true"|"false"], .ending-title, .ending-text, .restart-btn
  */
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,27 +39,60 @@ body {
   letter-spacing: 4px;
 }
 
-/* ── 좌우 분할 ─────────────────────────────── */
-#split {
-  flex: 1;
-  display: flex;
-  min-height: 0;
+/* hidden 속성이 display:flex 규칙에 밀리지 않도록 명시적으로 우선시킴 */
+#start-screen[hidden],
+#story[hidden],
+.ending[hidden] {
+  display: none;
 }
 
-.panel {
+/* ── 시작화면 ─────────────────────────────── */
+#start-screen {
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 32px;
+  text-align: center;
+}
+
+#start-desc {
+  font-size: 16px;
+  color: #444;
+}
+
+#route-select {
+  display: flex;
+  gap: 16px;
+}
+
+.route-btn {
+  padding: 16px 28px;
+  font-size: 15px;
+  color: #111;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.route-btn:hover { background: #ececec; }
+
+/* ── 스토리 화면 (단일 컬럼) ───────────────── */
+#story {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
   padding: 24px;
   overflow-y: auto;
 }
 
-#divider {
-  width: 1px;
-  background: #ddd;
-}
-
-.panel-role {
+.route-badge {
   font-size: 13px;
   font-weight: 600;
   color: #888;
@@ -69,14 +101,14 @@ body {
   letter-spacing: 2px;
 }
 
-.panel-text {
+.story-text {
   flex: 1;
   font-size: 16px;
   line-height: 1.8;
   white-space: pre-line; /* scenes.js의 \n 줄바꿈 반영 */
 }
 
-.panel-choices {
+.story-choices {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -96,27 +128,6 @@ body {
 
 .choice-btn:hover { background: #ececec; }
 
-.choice-btn.chosen {
-  background: #111;
-  color: #fff;
-  border-color: #111;
-}
-
-.choice-btn:disabled {
-  cursor: default;
-  opacity: 0.55;
-}
-
-.panel-waiting {
-  margin-top: 16px;
-  font-size: 13px;
-  color: #888;
-  text-align: center;
-}
-
-/* 선택 완료된 패널 */
-.panel.is-locked { background: #fafafa; }
-
 /* ── 엔딩 화면 ─────────────────────────────── */
 .ending {
   flex: 1;
@@ -124,7 +135,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 24px;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
   padding: 32px;
   text-align: center;
 }
@@ -135,15 +149,12 @@ body {
   letter-spacing: 6px;
 }
 
-.ending-body {
-  display: flex;
-  gap: 24px;
-  max-width: 900px;
-  width: 100%;
+/* 진엔딩은 최소한의 강조만 (세부 비주얼은 추후 교체) */
+.ending[data-true-ending="true"] .ending-title {
+  color: #a8710a;
 }
 
 .ending-text {
-  flex: 1;
   font-size: 15px;
   line-height: 1.8;
   white-space: pre-line;
@@ -157,10 +168,4 @@ body {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
-
-/* ── 좁은 화면: 위/아래로 쌓기 ──────────────── */
-@media (max-width: 640px) {
-  #split { flex-direction: column; }
-  #divider { width: auto; height: 1px; }
 }
