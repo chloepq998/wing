@@ -263,4 +263,10 @@
   el.routeWife.addEventListener("click", startWifeRoute);
   el.routeHusband.addEventListener("click", startHusbandRoute);
   el.endingRestart.addEventListener("click", resetToTitle);
+
+  // 부팅 로딩 연출: 로딩바가 다 채워질 즈음 타이틀 화면을 드러낸다.
+  const bootOverlay = document.getElementById("boot-overlay");
+  if (bootOverlay) {
+    setTimeout(() => bootOverlay.classList.add("boot-done"), 1300);
+  }
 })();

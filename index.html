@@ -4,6 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>날개 - 두 개의 방</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -11,21 +13,63 @@
 
     <!-- 시작 화면: 시점 선택 -->
     <div id="title-screen">
-      <div class="title-vignette"></div>
-      <div class="title-content">
-        <p class="title-kicker">죄책감과 구원</p>
-        <h1 class="title-main">날개</h1>
-        <p class="title-quote">"제발 날 좀 말려줘."</p>
+      <div id="boot-overlay">
+        <div class="boot-content">
+          <div class="boot-bar-bg"><div class="boot-bar-fill"></div></div>
+          <p class="boot-label pixel-font">LOADING...</p>
+        </div>
+      </div>
 
-        <div class="route-select">
-          <button id="route-wife" class="route-btn" type="button">
-            <span class="route-name">아내</span>
-            <span class="route-desc">그녀의 시점으로 시작한다</span>
-          </button>
-          <button id="route-husband" class="route-btn" type="button">
-            <span class="route-name">남편</span>
-            <span class="route-desc">그의 시점으로 시작한다</span>
-          </button>
+      <div class="title-vignette"></div>
+
+      <div class="pixel-motif motif-wing" aria-hidden="true"></div>
+      <div class="pixel-motif motif-pill" aria-hidden="true"></div>
+      <div class="pixel-motif motif-crack motif-crack-1" aria-hidden="true"></div>
+      <div class="pixel-motif motif-crack motif-crack-2" aria-hidden="true"></div>
+
+      <div class="pixel-popup" aria-hidden="true">
+        <div class="pixel-popup-titlebar">
+          <span class="pixel-font">WARNING</span>
+          <span class="pixel-popup-close">×</span>
+        </div>
+        <div class="pixel-popup-body">
+          <p>정말, 돌아가시겠습니까?</p>
+          <div class="pixel-popup-actions">
+            <span class="pixel-btn-mini pixel-font">YES</span>
+            <span class="pixel-btn-mini pixel-font">NO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pixel-panel">
+        <div class="pixel-titlebar">
+          <span class="pixel-titlebar-icon" aria-hidden="true"></span>
+          <span class="pixel-titlebar-label pixel-font">WING.EXE</span>
+          <span class="pixel-titlebar-corner" aria-hidden="true"></span>
+        </div>
+
+        <div class="pixel-panel-body">
+        <div class="pixel-panel-bg"></div>
+        <div class="pixel-panel-overlay"></div>
+        <div class="title-content">
+          <p class="title-kicker">죄책감과 구원</p>
+          <h1 class="title-main">날개</h1>
+          <p class="title-quote">"제발 날 좀 말려줘."</p>
+
+          <div class="route-select">
+            <div class="pixel-idle-cursor" aria-hidden="true"></div>
+            <button id="route-wife" class="route-btn pixel-btn" type="button">
+              <span class="pixel-btn-tag pixel-font">PLAY</span>
+              <span class="route-name">아내</span>
+              <span class="route-desc">그녀의 시점으로 시작한다</span>
+            </button>
+            <button id="route-husband" class="route-btn pixel-btn" type="button">
+              <span class="pixel-btn-tag pixel-font">PLAY</span>
+              <span class="route-name">남편</span>
+              <span class="route-desc">그의 시점으로 시작한다</span>
+            </button>
+          </div>
+        </div>
         </div>
       </div>
     </div>
