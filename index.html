@@ -3,34 +3,66 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>날개 - 아내 루트</title>
+<title>날개 - 두 개의 방</title>
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div id="game">
-    <div id="gauge-wrap">
-      <div id="gauge-label">남편의 인내심</div>
-      <div id="gauge-bar-bg">
-        <div id="gauge-bar-fill"></div>
+  <div id="app">
+
+    <!-- 시작 화면: 시점 선택 -->
+    <div id="title-screen">
+      <div class="title-vignette"></div>
+      <div class="title-content">
+        <p class="title-kicker">죄책감과 구원</p>
+        <h1 class="title-main">날개</h1>
+        <p class="title-quote">"제발 날 좀 말려줘."</p>
+
+        <div class="route-select">
+          <button id="route-wife" class="route-btn" type="button">
+            <span class="route-name">아내</span>
+            <span class="route-desc">그녀의 시점으로 시작한다</span>
+          </button>
+          <button id="route-husband" class="route-btn route-btn--locked" type="button">
+            <span class="route-name">남편</span>
+            <span class="route-desc">준비 중</span>
+          </button>
+        </div>
       </div>
-      <div id="gauge-value">100%</div>
     </div>
 
-    <div id="stage">
-      <img id="background" src="" alt="" />
-      <img id="character" src="" alt="" />
+    <!-- 본 게임 -->
+    <div id="game" class="hidden">
+      <div id="gauge-wrap">
+        <div id="gauge-label">남편의 인내심</div>
+        <div id="gauge-bar-bg">
+          <div id="gauge-bar-fill"></div>
+        </div>
+        <div id="gauge-value">100%</div>
+      </div>
+
+      <div id="chapter-label" class="hidden"></div>
+
+      <div id="stage">
+        <div id="bg-layer"></div>
+        <div id="bg-vignette"></div>
+        <div id="guest-silhouette" class="hidden"></div>
+        <img id="character" src="" alt="" />
+      </div>
+
+      <div id="dialogue-box">
+        <div id="speaker-name"></div>
+        <div id="dialogue-text"></div>
+        <div id="choices"></div>
+      </div>
+
+      <div id="ending-screen" class="hidden">
+        <div class="title-vignette"></div>
+        <div id="ending-title"></div>
+        <div id="ending-desc"></div>
+        <button id="ending-restart" class="choice-btn ending-restart hidden" type="button">처음으로</button>
+      </div>
     </div>
 
-    <div id="dialogue-box">
-      <div id="speaker-name"></div>
-      <div id="dialogue-text"></div>
-      <div id="choices"></div>
-    </div>
-
-    <div id="ending-screen" class="hidden">
-      <div id="ending-title"></div>
-      <div id="ending-desc"></div>
-    </div>
   </div>
 
   <script src="js/data.js"></script>
