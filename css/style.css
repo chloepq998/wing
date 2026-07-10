@@ -882,3 +882,47 @@ html, body {
 .hidden {
   display: none !important;
 }
+
+/* ============================================================
+   씬 전환 효과 — 부드러운 장면 진입
+   ============================================================ */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-portrait {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#dialogue-box {
+  animation: fade-in 0.4s ease-out;
+}
+
+#choices {
+  animation: slide-in-up 0.3s ease-out;
+}
+
+#portrait-wrap {
+  animation: fade-in-portrait 0.3s ease-out;
+}
