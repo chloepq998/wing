@@ -226,7 +226,8 @@ const GAME_DATA_HUSBAND = {
       bgGradient:
         "radial-gradient(ellipse at 60% 20%, rgba(90,50,60,0.22), transparent 55%), linear-gradient(180deg, rgba(24,14,18,0.45) 0%, rgba(13,8,10,0.68) 60%, rgba(4,3,4,0.85) 100%)",
       character: "assets/characters/husband.png",
-      cue: "SE: 낯선 구두 소리, 낮은 웃음소리",
+      screenEffect: "fx-shake",
+      cue: "SE: 낯선 구두 소리, 낮은 웃음소리(계속) · BGM: 불안감 있는 현악",
       speaker: "",
       text: "머리가 맑다.\n벽 너머로 낯선 구두 소리, 낮은 웃음소리가 들린다.",
       next: "h2b_2",
@@ -246,7 +247,8 @@ const GAME_DATA_HUSBAND = {
       bgGradient:
         "radial-gradient(ellipse at 60% 20%, rgba(90,50,60,0.22), transparent 55%), linear-gradient(180deg, rgba(24,14,18,0.45) 0%, rgba(13,8,10,0.68) 60%, rgba(4,3,4,0.85) 100%)",
       character: "assets/characters/husband.png",
-      cue: "SE: 미닫이문 스르륵 열리는 소리",
+      cameraEffect: "cam-zoom-in-slow",
+      cue: "SE: 미닫이문 스르륵 열리는 소리, 발소리(다가옴) · BGM: 불안감 고조",
       speaker: "",
       text: "숨죽여 앉아 있는데 미닫이문이 열리고 아내가 들어온다.\n다가와 내 손에 은화 몇 닢을 쥐여준다.",
       next: "h2b_reveal1",
@@ -256,7 +258,8 @@ const GAME_DATA_HUSBAND = {
       bgGradient:
         "radial-gradient(ellipse at 60% 20%, rgba(90,50,60,0.22), transparent 55%), linear-gradient(180deg, rgba(24,14,18,0.45) 0%, rgba(13,8,10,0.68) 60%, rgba(4,3,4,0.85) 100%)",
       character: "assets/characters/wife.png",
-      cue: "SE: 은화 짤랑거리는 소리",
+      cameraEffect: "cam-zoom-in",
+      cue: "SE: 은화 짤랑거리는 소리(금속음) · BGM: 불협화음 한 음",
       speaker: "아내",
       text: "아무 말 없이 미소만 짓는다.\n손에 은화 몇 닢을 쥐여준다.",
       next: "h2b_reveal2",
@@ -276,6 +279,8 @@ const GAME_DATA_HUSBAND = {
       bgGradient:
         "radial-gradient(ellipse at 60% 20%, rgba(90,50,60,0.22), transparent 55%), linear-gradient(180deg, rgba(24,14,18,0.45) 0%, rgba(13,8,10,0.68) 60%, rgba(4,3,4,0.85) 100%)",
       character: "assets/characters/husband.png",
+      screenEffect: "fx-desaturate",
+      cue: "SE: 침묵 · BGM: 현악이 점점 희미해짐",
       speaker: "",
       text: "방금까지 벽 너머에서 들리던 소리와,\n지금 내 손 위의 이 온기.",
       next: "h2b_mono2",
@@ -285,6 +290,8 @@ const GAME_DATA_HUSBAND = {
       bgGradient:
         "radial-gradient(ellipse at 60% 20%, rgba(90,50,60,0.22), transparent 55%), linear-gradient(180deg, rgba(24,14,18,0.45) 0%, rgba(13,8,10,0.68) 60%, rgba(4,3,4,0.85) 100%)",
       character: "assets/characters/husband.png",
+      screenEffect: "fx-desaturate",
+      cue: "BGM: 현악이 완전히 희미해짐, 절망감",
       speaker: "",
       text: "이 둘 사이의 거리를 나는 잴 수가 없다.",
       choices: [
@@ -327,8 +334,9 @@ const GAME_DATA_HUSBAND = {
       bgGradient:
         "radial-gradient(ellipse at 50% 60%, rgba(60,40,40,0.2), transparent 60%), linear-gradient(180deg, rgba(20,13,12,0.5) 0%, rgba(6,4,4,0.85) 100%)",
       character: "assets/characters/husband.png",
-      cue: "SE: 서랍 미닫이 소리, 심장박동",
+      cameraEffect: "cam-zoom-in",
       screenEffect: "fx-shake",
+      cue: "SE: 서랍 미닫이 소리, 심장박동(극적으로 가속) · BGM: 불협화음 악음, 공포감",
       speaker: "",
       text: "아내의 서랍에서 수면제(아달린) 뭉치를 발견하고 경악한다.",
       next: "h_b2_bridge2",
@@ -338,7 +346,8 @@ const GAME_DATA_HUSBAND = {
       bgGradient:
         "radial-gradient(ellipse at 50% 60%, rgba(60,40,40,0.2), transparent 60%), linear-gradient(180deg, rgba(20,13,12,0.5) 0%, rgba(6,4,4,0.85) 100%)",
       character: "assets/characters/husband.png",
-      cue: "SE: 심장박동",
+      screenEffect: "fx-shake",
+      cue: "SE: 심장박동(최고조), 거친 숨소리 · BGM: 현악 트레몰로, 긴박함",
       speaker: "",
       text: "그 순간부터 다리가 제멋대로 움직인다.\n정신을 차리니 계단이다.",
       next: "h3_from_b2",
