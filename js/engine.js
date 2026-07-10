@@ -45,6 +45,7 @@
     gaugeWrap: document.getElementById("gauge-wrap"),
     gaugeFill: document.getElementById("gauge-bar-fill"),
     gaugeValue: document.getElementById("gauge-value"),
+    gaugeMessage: document.getElementById("gauge-message"),
 
     endingScreen: document.getElementById("ending-screen"),
     endingBgLayer: document.getElementById("ending-bg-layer"),
@@ -76,10 +77,22 @@
     el.gaugeValue.textContent = pct + "%";
   }
 
+  function showGaugeMessage(delta) {
+    if (typeof delta !== "number" || delta === 0) return;
+    const sign = delta > 0 ? "+" : "";
+    const action = delta > 0 ? "증가" : "감소";
+    el.gaugeMessage.textContent = `인내심이 ${sign}${delta}% ${action}했습니다`;
+    el.gaugeMessage.classList.remove("hidden");
+    setTimeout(() => {
+      el.gaugeMessage.classList.add("hidden");
+    }, 2000);
+  }
+
   function applyPatienceDelta(delta) {
     if (typeof delta !== "number") return;
     state.patience = clampPatience(state.patience + delta);
     updateGauge();
+    showGaugeMessage(delta);
   }
 
   function resolveEndingSceneId() {
@@ -144,14 +157,6 @@
         const labelSpan = document.createElement("span");
         labelSpan.textContent = choice.label;
         btn.appendChild(labelSpan);
-
-        if (typeof choice.patienceDelta === "number") {
-          const deltaSpan = document.createElement("span");
-          deltaSpan.className = "choice-delta";
-          const sign = choice.patienceDelta > 0 ? "+" : "";
-          deltaSpan.textContent = `(인내심 ${sign}${choice.patienceDelta}%)`;
-          btn.appendChild(deltaSpan);
-        }
 
         btn.addEventListener("click", () => {
           applyPatienceDelta(choice.patienceDelta);
