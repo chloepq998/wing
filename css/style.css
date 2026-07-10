@@ -560,7 +560,7 @@ html, body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 2em 3em;
+  padding: 0.8em 3em;
   background: rgba(20, 9, 12, 0.95);
   border: 2px solid rgba(201, 75, 75, 0.6);
   border-radius: 0.8em;
