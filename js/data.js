@@ -43,7 +43,7 @@ const GAME_DATA = {
     // ------------------------------------------------------------
     scene_01: {
       chapterLabel: "시작 · 의도된 흔적",
-      bgImage: "assets/backgrounds/bg-alley.jpg",
+      bgImage: "assets/backgrounds/bg-wife-start.png",
       bgGradient:
         "radial-gradient(ellipse at 30% 20%, rgba(90,60,40,0.25), transparent 60%), linear-gradient(180deg, rgba(20,14,11,0.35) 0%, rgba(10,8,8,0.55) 60%, rgba(5,4,4,0.75) 100%)",
       character: "assets/characters/wife.png",
@@ -71,7 +71,7 @@ const GAME_DATA = {
     // ------------------------------------------------------------
     scene_02: {
       chapterLabel: "전개 · 벽 너머의 도발",
-      bgImage: "assets/backgrounds/bg-tram-night.jpg",
+      bgImage: "assets/backgrounds/bg-wife-develop.png",
       bgGradient:
         "radial-gradient(ellipse at 70% 30%, rgba(120,30,30,0.3), transparent 55%), linear-gradient(180deg, rgba(28,15,16,0.4) 0%, rgba(18,10,11,0.6) 60%, rgba(6,4,4,0.8) 100%)",
       character: "assets/characters/wife.png",
@@ -145,7 +145,7 @@ const GAME_DATA = {
     },
     ending_failure: {
       title: "무기력한 안주",
-      bgImage: "assets/backgrounds/bg-street-dusk.jpg",
+      bgImage: "assets/backgrounds/bg-wife-ending.jpg",
       bgGradient:
         "radial-gradient(ellipse at 50% 35%, rgba(120,40,50,0.25), transparent 60%), linear-gradient(180deg, rgba(13,6,7,0.6) 0%, rgba(0,0,0,0.9) 100%)",
       character: "assets/characters/husband.png",

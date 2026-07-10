@@ -198,6 +198,7 @@ const GAME_DATA_HUSBAND = {
     // A-2: 3단계로 이동
     h_a2_bridge1: {
       chapterLabel: "2단계 · 아내가 건네는 은화",
+      bgImage: "assets/backgrounds/bg-tram-night.jpg",
       bgGradient:
         "radial-gradient(ellipse at 50% 60%, rgba(60,50,40,0.2), transparent 60%), linear-gradient(180deg, rgba(20,16,12,0.5) 0%, rgba(6,5,4,0.85) 100%)",
       character: "assets/characters/husband.png",
@@ -209,6 +210,7 @@ const GAME_DATA_HUSBAND = {
     },
     h_a2_bridge2: {
       chapterLabel: "2단계 · 아내가 건네는 은화",
+      bgImage: "assets/backgrounds/bg-tram-night.jpg",
       bgGradient:
         "radial-gradient(ellipse at 50% 60%, rgba(60,50,40,0.2), transparent 60%), linear-gradient(180deg, rgba(20,16,12,0.5) 0%, rgba(6,5,4,0.85) 100%)",
       character: "assets/characters/husband.png",
@@ -223,6 +225,7 @@ const GAME_DATA_HUSBAND = {
     // ============================================================
     h2b_1: {
       chapterLabel: "2단계 · 아내가 건네는 은화",
+      bgImage: "assets/backgrounds/bg-alley.jpg",
       bgGradient:
         "radial-gradient(ellipse at 60% 20%, rgba(90,50,60,0.22), transparent 55%), linear-gradient(180deg, rgba(24,14,18,0.45) 0%, rgba(13,8,10,0.68) 60%, rgba(4,3,4,0.85) 100%)",
       character: "assets/characters/husband.png",
@@ -234,6 +237,7 @@ const GAME_DATA_HUSBAND = {
     },
     h2b_2: {
       chapterLabel: "2단계 · 아내가 건네는 은화",
+      bgImage: "assets/backgrounds/bg-alley.jpg",
       bgGradient:
         "radial-gradient(ellipse at 60% 20%, rgba(90,50,60,0.22), transparent 55%), linear-gradient(180deg, rgba(24,14,18,0.45) 0%, rgba(13,8,10,0.68) 60%, rgba(4,3,4,0.85) 100%)",
       character: "assets/characters/husband.png",
@@ -244,6 +248,7 @@ const GAME_DATA_HUSBAND = {
     },
     h2b_3: {
       chapterLabel: "2단계 · 아내가 건네는 은화",
+      bgImage: "assets/backgrounds/bg-alley.jpg",
       bgGradient:
         "radial-gradient(ellipse at 60% 20%, rgba(90,50,60,0.22), transparent 55%), linear-gradient(180deg, rgba(24,14,18,0.45) 0%, rgba(13,8,10,0.68) 60%, rgba(4,3,4,0.85) 100%)",
       character: "assets/characters/husband.png",
@@ -309,6 +314,7 @@ const GAME_DATA_HUSBAND = {
     // B-1: 3단계로 이동
     h_b1_bridge1: {
       chapterLabel: "2단계 · 아내가 건네는 은화",
+      bgImage: "assets/backgrounds/bg-tram-night.jpg",
       bgGradient:
         "radial-gradient(ellipse at 50% 60%, rgba(60,40,40,0.2), transparent 60%), linear-gradient(180deg, rgba(20,13,12,0.5) 0%, rgba(6,4,4,0.85) 100%)",
       character: "assets/characters/husband.png",
@@ -319,6 +325,7 @@ const GAME_DATA_HUSBAND = {
     },
     h_b1_bridge2: {
       chapterLabel: "2단계 · 아내가 건네는 은화",
+      bgImage: "assets/backgrounds/bg-tram-night.jpg",
       bgGradient:
         "radial-gradient(ellipse at 50% 60%, rgba(60,40,40,0.2), transparent 60%), linear-gradient(180deg, rgba(20,13,12,0.5) 0%, rgba(6,4,4,0.85) 100%)",
       character: "assets/characters/husband.png",
