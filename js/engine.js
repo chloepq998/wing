@@ -21,7 +21,9 @@
     chapterLabel: document.getElementById("chapter-label"),
     bgLayer: document.getElementById("bg-layer"),
     guestSilhouette: document.getElementById("guest-silhouette"),
-    character: document.getElementById("character"),
+
+    portraitWrap: document.getElementById("portrait-wrap"),
+    portrait: document.getElementById("portrait"),
 
     speakerName: document.getElementById("speaker-name"),
     dialogueText: document.getElementById("dialogue-text"),
@@ -34,10 +36,24 @@
     gaugeValue: document.getElementById("gauge-value"),
 
     endingScreen: document.getElementById("ending-screen"),
+    endingBgLayer: document.getElementById("ending-bg-layer"),
     endingTitle: document.getElementById("ending-title"),
     endingDesc: document.getElementById("ending-desc"),
     endingRestart: document.getElementById("ending-restart"),
   };
+
+  function backgroundLayers(scene) {
+    if (scene.bgImage) {
+      return {
+        image: `${scene.bgGradient || "none"}, url("${scene.bgImage}")`,
+        size: "cover, cover",
+      };
+    }
+    return {
+      image: scene.bgGradient || "none",
+      size: "cover",
+    };
+  }
 
   function clampPatience(value) {
     return Math.max(GAME_DATA.minPatience, Math.min(GAME_DATA.maxPatience, value));
@@ -64,17 +80,22 @@
   }
 
   function renderStageVisuals(scene) {
-    el.bgLayer.style.background = scene.bgGradient || "#000";
-
-    if (scene.character) {
-      el.character.src = scene.character;
-      el.character.classList.remove("hidden");
-    } else {
-      el.character.removeAttribute("src");
-      el.character.classList.add("hidden");
-    }
+    const layers = backgroundLayers(scene);
+    el.bgLayer.style.backgroundImage = layers.image;
+    el.bgLayer.style.backgroundSize = layers.size;
+    el.bgLayer.style.backgroundPosition = "center";
 
     el.guestSilhouette.classList.toggle("hidden", !scene.showGuest);
+  }
+
+  function renderPortrait(scene) {
+    if (scene.character) {
+      el.portrait.src = scene.character;
+      el.portraitWrap.classList.remove("hidden");
+    } else {
+      el.portrait.removeAttribute("src");
+      el.portraitWrap.classList.add("hidden");
+    }
   }
 
   function renderChoices(scene) {
@@ -120,9 +141,14 @@
 
   function renderEnding(scene) {
     el.dialogueBox.classList.add("hidden");
+    el.choices.classList.add("hidden");
     el.stage.classList.add("hidden");
     el.gaugeWrap.classList.add("hidden");
     el.chapterLabel.classList.add("hidden");
+
+    const layers = backgroundLayers(scene);
+    el.endingBgLayer.style.backgroundImage = layers.image;
+    el.endingBgLayer.style.backgroundSize = layers.size;
 
     el.endingScreen.classList.remove("hidden");
     el.endingTitle.textContent = scene.title || "ENDING";
@@ -158,6 +184,7 @@
     }
 
     renderStageVisuals(scene);
+    renderPortrait(scene);
     el.speakerName.textContent = scene.speaker || "";
     el.dialogueText.textContent = scene.text || "";
     renderChoices(scene);
@@ -186,6 +213,7 @@
     el.endingScreen.classList.add("hidden");
     el.endingRestart.classList.add("hidden");
     el.dialogueBox.classList.remove("hidden");
+    el.choices.classList.remove("hidden");
     el.stage.classList.remove("hidden");
     el.gaugeWrap.classList.remove("hidden");
     el.game.classList.add("hidden");

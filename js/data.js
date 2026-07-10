@@ -7,8 +7,9 @@
  * ---------- 씬(scene) 한 개의 구조 ----------
  * {
  *   chapterLabel: "챕터 표시 문구" (선택)
- *   bgGradient: "CSS background 값"           // 배경 (이미지 없이 그라데이션으로 연출)
- *   character: "assets/characters/xxx.png" | null
+ *   bgImage: "assets/backgrounds/xxx.jpg" | null  // 배경 사진
+ *   bgGradient: "CSS background 값"           // 배경 사진 위에 덧씌우는 분위기 그라데이션
+ *   character: "assets/characters/xxx.png" | null // 대화창 초상화
  *   showGuest: true | false                    // 사내(내객) 실루엣 표시 여부
  *   speaker: "아내" | "남편" | "" (지문/나레이션은 빈 문자열)
  *   text: "대사/지문 내용"
@@ -42,8 +43,9 @@ const GAME_DATA = {
     // ------------------------------------------------------------
     scene_01: {
       chapterLabel: "시작 · 의도된 흔적",
+      bgImage: "assets/backgrounds/bg-alley.jpg",
       bgGradient:
-        "radial-gradient(ellipse at 30% 20%, rgba(90,60,40,0.35), transparent 60%), linear-gradient(180deg,#241a14 0%,#14100d 60%,#0a0808 100%)",
+        "radial-gradient(ellipse at 30% 20%, rgba(90,60,40,0.25), transparent 60%), linear-gradient(180deg, rgba(20,14,11,0.35) 0%, rgba(10,8,8,0.55) 60%, rgba(5,4,4,0.75) 100%)",
       character: "assets/characters/wife.png",
       showGuest: true,
       speaker: "",
@@ -67,8 +69,9 @@ const GAME_DATA = {
     // ------------------------------------------------------------
     scene_02: {
       chapterLabel: "전개 · 벽 너머의 도발",
+      bgImage: "assets/backgrounds/bg-tram-night.jpg",
       bgGradient:
-        "radial-gradient(ellipse at 70% 30%, rgba(120,30,30,0.35), transparent 55%), linear-gradient(180deg,#1c0f10 0%,#120a0b 60%,#060404 100%)",
+        "radial-gradient(ellipse at 70% 30%, rgba(120,30,30,0.3), transparent 55%), linear-gradient(180deg, rgba(28,15,16,0.4) 0%, rgba(18,10,11,0.6) 60%, rgba(6,4,4,0.8) 100%)",
       character: "assets/characters/wife.png",
       showGuest: true,
       speaker: "",
@@ -92,8 +95,9 @@ const GAME_DATA = {
     // ------------------------------------------------------------
     scene_03: {
       chapterLabel: "절정 · 아달린의 발각",
+      bgImage: "assets/backgrounds/bg-street-dawn.jpg",
       bgGradient:
-        "radial-gradient(ellipse at 50% 15%, rgba(80,90,110,0.25), transparent 55%), linear-gradient(180deg,#11151c 0%,#0b0d10 60%,#050506 100%)",
+        "radial-gradient(ellipse at 50% 15%, rgba(80,90,110,0.2), transparent 55%), linear-gradient(180deg, rgba(17,21,28,0.3) 0%, rgba(11,13,16,0.5) 60%, rgba(5,5,6,0.75) 100%)",
       character: "assets/characters/husband.png",
       showGuest: false,
       speaker: "",
@@ -121,6 +125,9 @@ const GAME_DATA = {
     // ------------------------------------------------------------
     ending_success: {
       title: "역전된 구원",
+      bgImage: "assets/backgrounds/bg-riverside.jpg",
+      bgGradient:
+        "radial-gradient(ellipse at 50% 35%, rgba(120,40,50,0.25), transparent 60%), linear-gradient(180deg, rgba(13,6,7,0.55) 0%, rgba(0,0,0,0.85) 100%)",
       character: "assets/characters/husband.png",
       text:
         "뺨을 맞은 남편이 마침내 폭발해 아내의 손목을 꺾고 사내들의 흔적을 엎어버리고 나간다.\n아내는 짐을 챙겨 새로운 사람이 될 준비를 마쳐 집을 나와 걷다가 백화점 옥상에 올라가 있는 남편을 마주친다.\n남편을 바라보다, 다시 인파 속으로 들어간다. / 자신의 길을 걷는다.",
@@ -128,6 +135,9 @@ const GAME_DATA = {
     },
     ending_failure: {
       title: "무기력한 안주",
+      bgImage: "assets/backgrounds/bg-street-dusk.jpg",
+      bgGradient:
+        "radial-gradient(ellipse at 50% 35%, rgba(120,40,50,0.25), transparent 60%), linear-gradient(180deg, rgba(13,6,7,0.6) 0%, rgba(0,0,0,0.9) 100%)",
       character: "assets/characters/husband.png",
       text:
         "남편은 분노하지 못하고 고개를 숙인다.\n\"내가 오해했소……\"\n다시 방구석 이불 속으로 기어 들어가는 남편을 보며, 아내는 영원히 이 지옥을 벗어날 수 없음을 깨닫고 절망한다.",

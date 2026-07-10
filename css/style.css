@@ -231,52 +231,83 @@ html, body {
   opacity: 0.9;
 }
 
-#character {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 95%;
-  max-height: 95%;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
-  transition: opacity 0.3s ease;
-}
-
-/* ---------- 하단: 이름 / 대사 / 선택지 ---------- */
+/* ---------- 하단: 초상화 + 이름/대사 ---------- */
 #dialogue-box {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-  height: 30%;
+  bottom: 12%;
+  height: 18%;
   background: rgba(10, 10, 12, 0.88);
   color: #fff;
-  padding: 1.2em 2em;
+  padding: 0.7em 1.4em;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
   z-index: 20;
   border-top: 1px solid rgba(224, 163, 163, 0.15);
 }
 
+#portrait-wrap {
+  flex: none;
+  height: 88%;
+  aspect-ratio: 1 / 1.05;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(224, 163, 163, 0.25);
+}
+
+#portrait-wrap.hidden {
+  visibility: hidden;
+}
+
+#portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 8%;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+#dialogue-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
 #speaker-name {
-  font-size: clamp(12px, 2vw, 20px);
+  font-size: clamp(13px, 2.1vw, 21px);
   font-weight: 700;
   color: #e0a3a3;
-  margin-bottom: 0.4em;
+  margin-bottom: 0.3em;
 }
 
 #dialogue-text {
-  font-size: clamp(11px, 1.8vw, 18px);
-  line-height: 1.5;
-  flex: 1;
+  font-size: clamp(10px, 1.6vw, 16px);
+  line-height: 1.45;
   white-space: pre-line;
+  overflow-y: auto;
 }
 
+/* ---------- 선택지: 대화창 바로 아래, 화면 최하단 ---------- */
 #choices {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12%;
+  z-index: 20;
   display: flex;
+  align-items: center;
   gap: 0.8em;
-  margin-top: 0.6em;
+  padding: 0 1.4em 0.6em;
 }
 
 .choice-btn {
@@ -305,10 +336,10 @@ html, body {
 }
 
 #next-hint {
-  align-self: flex-end;
+  flex: none;
+  margin-left: auto;
   font-size: clamp(9px, 1.2vw, 13px);
   opacity: 0.6;
-  margin-top: 0.4em;
   cursor: pointer;
 }
 
@@ -317,9 +348,6 @@ html, body {
   position: absolute;
   inset: 0;
   z-index: 40;
-  background:
-    radial-gradient(ellipse at 50% 40%, rgba(120, 40, 50, 0.25), transparent 60%),
-    linear-gradient(180deg, #0d0607 0%, #000 100%);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -327,6 +355,15 @@ html, body {
   justify-content: center;
   text-align: center;
   padding: 2em;
+  overflow: hidden;
+}
+
+#ending-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover, cover;
+  background-position: center;
 }
 
 #ending-title {
